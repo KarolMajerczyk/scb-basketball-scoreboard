@@ -7,12 +7,12 @@ const elements = {
   gameTimer: document.getElementById("game-timer"),
 };
 
-const score = {
+let score = {
   home: 0,
   guest: 0,
 };
 
-let timeIntervalId;
+let timeIntervalId = null;
 
 // Add points
 
@@ -72,16 +72,12 @@ function startNewGame() {
 
   startGameTimer();
 
-  score["home"] = 0;
+  score = { home: 0, guest: 0 };
   elements.homeScore.textContent = 0;
-
-  score["guest"] = 0;
   elements.guestScore.textContent = 0;
 
   elements.homeScore.classList.remove("current-leader");
   elements.guestScore.classList.remove("current-leader");
-
-  startTime = Date.now();
 }
 
 // Events
@@ -89,9 +85,10 @@ function startNewGame() {
 startGameTimer();
 
 elements.pointsBtns.forEach((btn) => {
+  const team = btn.parentElement.dataset.team;
+  const points = Number(btn.textContent.slice(1));
+
   btn.addEventListener("click", () => {
-    const team = btn.parentElement.dataset.team;
-    const points = Number(btn.textContent.slice(1));
     addPoints(team, points);
   });
 });
