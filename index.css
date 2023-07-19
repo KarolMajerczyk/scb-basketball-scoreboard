@@ -91,7 +91,8 @@ body {
   color: var(--clr-neutral-100);
 
   padding: 50px 30px;
-  width: 575px;
+
+  width: clamp(400px, 90vw, 600px);
 
   border-radius: 20px;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
@@ -218,7 +219,7 @@ body {
   color: var(--clr-neutral-100);
 }
 
-@media screen and (max-width: 455px) {
+@media screen and (max-width: 500px) {
   .game-board {
     display: block;
   }
