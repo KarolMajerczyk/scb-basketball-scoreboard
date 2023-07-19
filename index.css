@@ -92,7 +92,7 @@ body {
 
   padding: 50px 30px;
 
-  width: clamp(400px, 90vw, 600px);
+  width: 600px;
 
   border-radius: 20px;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
